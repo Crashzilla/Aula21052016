@@ -4,6 +4,7 @@
 		<title>CadastroUsuario</title>
 	</head>
 	<body>
+		<%@ include file="welcome.jsp" %><br/>
 		<h1>Cadastro de usuários</h1>
 		<form action="cadUsuarios" method="post">
 			<label for="nome">Usuário</label><br/>
@@ -16,8 +17,9 @@
 				<option value="2">Cliente</option>
 			</select><br/>
 			<br/>
-			<input type="submit" value="Validar">
+			<input type="submit" value="Validar"><br/>
 			<br/>
-			${msg}
+			${msg}<br/>
+			<br/>
 	</body>
 </html>

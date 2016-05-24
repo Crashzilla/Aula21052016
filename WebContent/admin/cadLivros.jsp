@@ -4,6 +4,7 @@
 		<title>CadastroLivro</title>
 	</head>
 	<body>
+		<jsp:include page="welcome.jsp"/>
 		<h1>Cadastro de livros</h1>
 		<form action="cadLivros" method="post" enctype="multipart/form-data">
 		<label for="codigo">Código</label><br/>

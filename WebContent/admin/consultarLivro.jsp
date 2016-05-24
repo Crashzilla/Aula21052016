@@ -4,6 +4,7 @@
 <title>Mostrar Livro</title>
 </head>
 <body>
+	<%@ include file="welcome.jsp" %>
 	<h1>Detalhes do livro</h1>
 	<ul>
 		<li>Codigo: ${livro.codigo}</li>

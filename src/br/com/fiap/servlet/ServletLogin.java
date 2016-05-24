@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import br.com.fiap.dao.GenericDao;
 import br.com.fiap.entity.Usuario;
@@ -45,14 +46,18 @@ public class ServletLogin extends HttpServlet {
 		try {
 			Usuario usuario = dao.buscar(nome, senha);
 			if(usuario != null){
+				//Armazenamento do usuário em sessão
+				HttpSession session = request.getSession();
+				session.setAttribute("usuario_sessao", usuario);
+				//Nova requisição GET
 				response.sendRedirect("admin/menu.jsp");
 			}
 			else{
-				request.setAttribute("msgValidacao", "Usuário ou senha inválidos");
+				request.setAttribute("msg", "Usuário ou senha inválidos");
 				request.getRequestDispatcher("login.jsp").forward(request, response);
 			}
 		} catch (Exception e) {
-			request.setAttribute("msgValidacao", e.getMessage());
+			request.setAttribute("msg", e.getMessage());
 			request.getRequestDispatcher("login.jsp").forward(request, response);
 		}
 		
